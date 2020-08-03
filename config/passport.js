@@ -7,6 +7,32 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 },
 function(accessToken, refreshToken, profile, cb) {
-
+    Runner.findOne({ 'googleId': profile.id }, function(err, student) {
+        if (err) return cb(err);
+        if (runner) {
+            return cb(null, runner);
+        } else {
+            // we have a new student via OAuth!
+            const newRunner = new Runner({
+                name: profile.displayName,
+                email: profile.emails[0].value,
+                googleId: profile.id
+            });
+            newRunner.save(function(err) {
+                if (err) return cb(err);
+                return cb(null, newRunner);
+            });
+        }
+    });
 }
 ));
+
+passport.serializeUser(function(runner, done) {
+    done(null, runner.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    Runner.findById(id, function(err, runner) {
+        done(err, runner);
+    });
+});
