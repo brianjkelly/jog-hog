@@ -4,7 +4,12 @@ const passport = require('passport');
 const indexCtrl = require('../controllers/index');
 
 
-router.get('/', indexCtrl.index);
+// router.get('/', indexCtrl.index);
+router.get('/', function(req, res) {
+    res.render('index', {
+        user: req.user
+    });
+});
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
     'google',
@@ -14,7 +19,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
     'google',
     {
-        successRedirect : '/runners',
+        // eventually might change the successRedirect
+        successRedirect : '/',
         failureRedirect : '/'
     }
 ));
