@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const passport = require('passport');
 const port = 3000;
 const indexRouter = require('./routes/index');
 
@@ -13,6 +14,7 @@ const app = express();
 
 // Connect to DB
 require('./config/database');
+require('./config/passport');
 
 // Configure the app with app.set()
 app.set('view engine', 'ejs');
@@ -26,6 +28,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Mount routes with app.use()
 app.use('/', indexRouter);
