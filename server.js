@@ -4,7 +4,9 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const port = 3000;
+
 const indexRouter = require('./routes/index');
+const plansRouter = require('./routes/plans');
 
 // Load the env vars
 require('dotenv').config()
@@ -33,6 +35,7 @@ app.use(passport.session());
 
 // Mount routes with app.use()
 app.use('/', indexRouter);
+app.use('/plans', plansRouter);
 
 // Tell App to listen
 app.listen(port, function() {
