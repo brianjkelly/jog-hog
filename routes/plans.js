@@ -7,5 +7,6 @@ router.get('/new', plansCtrl.new);
 router.post('/', plansCtrl.create);
 router.get('/', plansCtrl.index);
 router.get('/:id', plansCtrl.show);
+router.get('/:id/edit', plansCtrl.edit);
 
 module.exports = router;

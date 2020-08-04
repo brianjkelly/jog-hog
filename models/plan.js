@@ -10,23 +10,13 @@ const daySchema = new Schema({
     },
     dayType: {
         type: String,
-        enum: ['Easy', 'Hard', 'Tempo']
+        enum: ['Easy', 'Hard', 'Tempo', 'Rest']
     },
     distance: {
         type: Number,
         min: 1,
         max: 30
     },
-    // timeMinutes: {
-    //     type: Number,
-    //     min: 1,
-    //     max: 600
-    // },
-    // timeSeconds: {
-    //     type: Number,
-    //     min: 0,
-    //     max: 59
-    // },
     notes: {
         type: String,
         maxlength: 300

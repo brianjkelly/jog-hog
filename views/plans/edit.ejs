@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<form id="edit-form" action="/plans/<%= plan._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Title: 
+        <input type="text" name="title" required value="<%= plan.title %>">
+    </label>
+    <label>Distance:
+        <!-- plan.distance does not pull corresponding value -->
+        <select name="distance" value="<%= plan.distance %>">
+            <option value="5k">5k</option>
+            <option value="10k">10k</option>
+            <option value="Half-Marathon">Half-Marathon</option>
+            <option value="Marathon">Marathon</option>
+        </select>
+    </label>
+    <label>Duration (weeks):
+        <input type="text" name="duration" value="<%= plan.duration %>">
+    </label>
+    <label>Notes:
+        <!-- plan.notes does not pull corresponding value -->
+        <textarea name="notes" value="<%= plan.notes %>"></textarea>
+    </label>
+    <input type="submit" value="Edit Plan">
+</form>
+
+<%- include('../partials/footer') %>

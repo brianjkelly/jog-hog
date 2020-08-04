@@ -4,7 +4,8 @@ module.exports = {
     new: newPlan,
     create,
     index,
-    show
+    show,
+    edit
 };
 
 function newPlan(req, res) {
@@ -38,6 +39,15 @@ function show(req, res) {
     Plan.findById(req.params.id, function(err, plan) {
         res.render('plans/show', {
             title: 'Plan Details',
+            plan
+        });
+    });
+};
+
+function edit(req, res) {
+    Plan.findById(req.params.id, function(err, plan) {
+        res.render('plans/edit', {
+            title: 'Edit Plan',
             plan
         });
     });

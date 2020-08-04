@@ -6,6 +6,7 @@
             <th>Distance</th>
             <th>Duration (weeks)</th>
             <th></th>
+            <th></th>
         </thead>
         <tbody>
             <% plans.forEach(function(plan) { %>
@@ -14,6 +15,7 @@
                     <td><%= plan.distance %></td>
                     <td><%= plan.duration %></td>
                     <td><a href="/plans/<%= plan._id %>">Details</a></td>
+                    <td><a href="/plans/<%= plan._id %>/edit">Edit</a></td>
                 </tr>
             <% }) %>
         </tbody>
