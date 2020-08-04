@@ -20,6 +20,7 @@
                 <th>Type</th>
                 <th>Distance (miles)</th>
                 <th>Notes</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@
                     <td><%= d.dayType %></td>
                     <td><%= d.distance %></td>
                     <td><%= d.notes %></td>
+                    <td><form id="delete-form" action="/days/<%= d._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form></td>
                 </tr>
             <% }) %>
         </tbody>

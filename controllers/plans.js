@@ -73,5 +73,5 @@ function update(req, res) {
 function deletePlan(req, res) {
     Plan.findByIdAndDelete(req.params.id, function(err, plan) {
         res.redirect('/plans');
-    })
-}
+    });
+};

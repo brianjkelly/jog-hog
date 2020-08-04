@@ -2,7 +2,8 @@ const Plan = require('../models/plan');
 
 module.exports = {
     new: newDay,
-    create
+    create,
+    delete: deleteDay
 };
 
 function newDay(req, res) {
@@ -18,6 +19,15 @@ function create(req, res) {
         plan.days.push(req.body);
         plan.save(function(err) {
             res.redirect(`/plans/${plan._id}`);
+        });
+    });
+};
+
+function deleteDay(req, res) {
+    Plan.findOne({ "days._id": req.params.id }, function(err, plan) {
+        plan.days.pull(req.params.id);
+        plan.save(function(err) {
+            res.redirect(`/plans/${plan._id}`)
         });
     });
 };
