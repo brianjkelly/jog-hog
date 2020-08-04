@@ -30,6 +30,10 @@ const planSchema = new Schema({
         type: String,
         required: true
     },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'Runner'
+    },
     distance: {
         type: String,
         enum: ['5k', '10k', 'Half-Marathon', 'Marathon']
