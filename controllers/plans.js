@@ -3,7 +3,8 @@ const Plan = require('../models/plan');
 module.exports = {
     new: newPlan,
     create,
-    index
+    index,
+    show
 };
 
 function newPlan(req, res) {
@@ -31,4 +32,13 @@ function index(req, res) {
             plans
         });
     });
-}
+};
+
+function show(req, res) {
+    Plan.findById(req.params.id, function(err, plan) {
+        res.render('plans/show', {
+            title: 'Plan Details',
+            plan
+        });
+    });
+};
