@@ -5,7 +5,9 @@ module.exports = {
     create,
     index,
     show,
-    edit
+    edit,
+    update,
+    delete: deletePlan
 };
 
 function newPlan(req, res) {
@@ -52,3 +54,24 @@ function edit(req, res) {
         });
     });
 };
+
+function update(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    };
+    Plan.findByIdAndUpdate(
+        req.params.id, 
+        req.body,
+        {new: true}
+    ).then(function(plan) {
+            res.redirect('/plans');
+    }).catch(function(err) {
+        res.redirect(`/plans/${req.params.id}/edit`);
+    });
+};
+
+function deletePlan(req, res) {
+    Plan.findByIdAndDelete(req.params.id, function(err, plan) {
+        res.redirect('/plans');
+    })
+}

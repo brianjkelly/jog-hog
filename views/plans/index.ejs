@@ -7,6 +7,7 @@
             <th>Duration (weeks)</th>
             <th></th>
             <th></th>
+            <th></th>
         </thead>
         <tbody>
             <% plans.forEach(function(plan) { %>
@@ -16,6 +17,9 @@
                     <td><%= plan.duration %></td>
                     <td><a href="/plans/<%= plan._id %>">Details</a></td>
                     <td><a href="/plans/<%= plan._id %>/edit">Edit</a></td>
+                    <td><form id="delete-form" action="/plans/<%= plan._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form></td>
                 </tr>
             <% }) %>
         </tbody>
