@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form id="add-day-form" action="/plans/<%= planId %>/days/" method="POST">
+    <label>Day Number:
+        <input type="number" name="dayNumber">
+    </label>
+    <label>Type:
+        <select name="dayType">
+            <option value="Easy">Easy</option>
+            <option value="Hard">Hard</option>
+            <option value="Tempo">Tempo</option>
+        </select>
+    </label>
+    <label>Distance (miles):
+        <input type="number" name="distance">
+    </label>
+    <label>Notes:
+        <textarea name="notes"></textarea>
+    </label>
+    <input type="submit" value="Add Day">
+</form>
+
+<%- include('../partials/footer') %>

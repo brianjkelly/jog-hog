@@ -7,6 +7,7 @@ const port = 3000;
 
 const indexRouter = require('./routes/index');
 const plansRouter = require('./routes/plans');
+const daysRouter = require('./routes/days');
 
 // Load the env vars
 require('dotenv').config()
@@ -36,6 +37,7 @@ app.use(passport.session());
 // Mount routes with app.use()
 app.use('/', indexRouter);
 app.use('/plans', plansRouter);
+app.use('/', daysRouter);
 
 // Tell App to listen
 app.listen(port, function() {
