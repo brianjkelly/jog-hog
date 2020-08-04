@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function newPlan(req, res) {
-    res.render('plans/new');
+    res.render('plans/new', { title: 'Create Plan' });
 };
 
 function create(req, res) {
@@ -27,6 +27,7 @@ function index(req, res) {
     Plan.find({}, function(err, plans) {
         // ... render a template with plans data
         res.render('plans/index', {
+            title: 'All Plans',
             plans
         });
     });

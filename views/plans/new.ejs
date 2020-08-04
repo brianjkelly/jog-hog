@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Run Plan</title>
-</head>
-<body>
+<%- include('../partials/header') %>
     
-    <h2>Create a New Plan</h2>
     <form action="/plans" method="POST">
         <label>Title:
             <input type="text" name="title">
@@ -29,5 +21,4 @@
         <input type="submit" value="Create Plan">
     </form>
 
-</body>
-</html>
+    <%- include('../partials/footer') %>
