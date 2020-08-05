@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const plansRouter = require('./routes/plans');
 const daysRouter = require('./routes/days');
 const journalsRouter = require('./routes/journals');
+const entriesRouter = require('./routes/entries');
 
 // Load the env vars
 require('dotenv').config()
@@ -42,6 +43,7 @@ app.use('/', indexRouter);
 app.use('/plans', plansRouter);
 app.use('/', daysRouter);
 app.use('/journals', journalsRouter);
+app.use('/', entriesRouter);
 
 // Tell App to listen
 app.listen(port, function() {
