@@ -17,7 +17,7 @@ function create(req, res) {
     Journal.findById(req.params.id, function(err, journal) {
         journal.entries.push(req.body);
         journal.save(function(err) {
-            res.redirect(`journals/${journal._id}`)
+            res.redirect(`/journals/${journal._id}`)
         });
     });
 };
