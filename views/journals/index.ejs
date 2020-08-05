@@ -13,7 +13,7 @@
             <tr>
                 <td><%= j.title %></td>
                 <td><%= j.notes %></td>
-                <td><a href="/journals/<%= j._id %>">Show Details</a></td>
+                <td><a href="/journals/<%= j._id %>">Details</a></td>
                 <td><a href="/journals/<%= j._id %>/edit">Edit</a></td>
                 <td><form id="delete-form" action="/journals/<%= j._id %>?_method=DELETE" method="POST">
                     <button type="submit">Delete</button>
