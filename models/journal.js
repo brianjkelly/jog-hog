@@ -38,7 +38,7 @@ const journalSchema = new Schema({
         type: String,
         required: true        
     },
-    author: {
+    runner: {
         type: Schema.Types.ObjectId,
         ref: 'Runner'
     },

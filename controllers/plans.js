@@ -21,7 +21,7 @@ function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     };
     Runner.findById(req.user._id, function (err, user) {
-        req.body.author = user;
+        req.body.runner = user;
         const plan = new Plan(req.body);
         plan.save(function(err) {
             if (err) return res.render('plans/new');
@@ -40,10 +40,13 @@ function index(req, res) {
 };
 
 function show(req, res) {
-    Plan.findById(req.params.id, function(err, plan) {
+    Plan.findById(req.params.id) 
+    .populate('runner')
+    .exec(function(err, plan) {
         res.render('plans/show', {
             title: 'Plan Details',
-            plan
+            plan,
+            runner: plan.runner
         });
     });
 };
