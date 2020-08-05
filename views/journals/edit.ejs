@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="edit-journal-form" action="/journals/<%= journal._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Title:
+        <input type="text" name="title" required value="<%= journal.title %>">
+    </label>
+    <label>Notes:
+        <textarea name="notes"><%= journal.notes %></textarea>
+    </label>
+    <input type="submit" value="Edit Journal">
+</form>
+
+<%- include('../partials/footer') %>
