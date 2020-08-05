@@ -13,5 +13,35 @@
     <div><%= journal.notes %></div>
 </section>
 
+<h2>My Entries</h2>
+<% if (journal.entries.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Day Number</th>
+                <th>Type</th>
+                <th>Actual Distance (miles)</th>
+                <th>Actual Time (hh:mm:ss)</th>
+                <th>Notes</th>
+        </thead>
+        <tbody>
+            <% journal.entries.forEach(function(e) { %>
+                <tr>
+                    <td><%= e.date %></td>
+                    <td><%= e.dayNumber %></td>
+                    <td><%= e.dayType %></td>
+                    <td><%= e.actDistance %></td>
+                    <td><%= e.actTime %></td>
+                    <td><%= e.notes %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h5>No Entries Added to Journal</h5>
+<% } %>
+<a href='/journals/<%= journal._id %>/entries/new'>Add a New Entry</a>
+
 
 <%- include('../partials/footer') %>
