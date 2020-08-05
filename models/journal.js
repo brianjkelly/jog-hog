@@ -22,9 +22,9 @@ const entrySchema = new Schema({
         min: 1,
         max: 30
     },
-    // actTime: {
-    //     type: 
-    // },
+    actTime: {
+        type: Date
+    },
     notes: {
         type: String,
         maxlength: 300
