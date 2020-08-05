@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="edit-form" action="/plans/<%= plan._id %>?_method=PUT" method="POST" autocomplete="off">
+<form id="edit-plan-form" action="/plans/<%= plan._id %>?_method=PUT" method="POST" autocomplete="off">
     <label>Title: 
         <input type="text" name="title" required value="<%= plan.title %>">
     </label>

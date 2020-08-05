@@ -27,9 +27,7 @@ function create(req, res) {
 };
 
 function index(req, res) {
-    // get all the run plans from the DB
     Plan.find({}, function(err, plans) {
-        // ... render a template with plans data
         res.render('plans/index', {
             title: 'All Plans',
             plans

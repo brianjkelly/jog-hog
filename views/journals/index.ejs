@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<table id="journal-list">
+    <thead>
+        <th>Title</th>
+        <th>Plan</th>
+        <th>Distance</th>
+        <th>Duration (weeks)</th>
+        <th>Notes</th>
+    </thead>
+    <tbody>
+        <% journals.forEach(function(j) { %>
+            <tr>
+                <td><%= j.title %></td>
+                <td><%= j.plan.title %></td>
+                <td><%= j.plan.distance %></td>
+                <td><%= j.plan.duration %></td>
+                <td><%= j.notes %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include('../partials/footer') %>
