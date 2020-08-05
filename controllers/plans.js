@@ -1,4 +1,5 @@
 const Plan = require('../models/plan');
+const Runner = require('../models/runner');
 
 module.exports = {
     new: newPlan,
@@ -19,10 +20,13 @@ function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     };
-    const plan = new Plan(req.body);
-    plan.save(function(err) {
-        if (err) return res.render('plans/new');
-        res.redirect('/plans');
+    Runner.findById(req.user._id, function (err, user) {
+        req.body.author = user;
+        const plan = new Plan(req.body);
+        plan.save(function(err) {
+            if (err) return res.render('plans/new');
+            res.redirect('/plans');
+        });
     });
 };
 

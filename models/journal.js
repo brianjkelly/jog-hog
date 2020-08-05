@@ -1,6 +1,38 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+const entrySchema = new Schema({
+    date: {
+        type: Date,
+        required: true
+    },
+    dayNumber: {
+        type: Number,
+        min: 1,
+        max: 182,
+        required: true
+    },
+    dayType: {
+        type: String,
+        enum: ['Easy', 'Hard', 'Tempo', 'Rest']
+    },
+    actDistance: {
+        type: Number,
+        min: 1,
+        max: 30
+    },
+    // actTime: {
+    //     type: 
+    // },
+    notes: {
+        type: String,
+        maxlength: 300
+    }, 
+}, {
+    timestamps: true
+});
+
 const journalSchema = new Schema({
     title: {
         type: String,
@@ -18,7 +50,7 @@ const journalSchema = new Schema({
         type: String,
         maxlength: 300
     },
-    // entries: [entrySchema]
+    entries: [entrySchema]
 }, {
     timestamps: true
 });

@@ -12,7 +12,7 @@ function(accessToken, refreshToken, profile, cb) {
         if (runner) {
             return cb(null, runner);
         } else {
-            // we have a new student via OAuth!
+            // we have a new runner via OAuth!
             const newRunner = new Runner({
                 name: profile.displayName,
                 email: profile.emails[0].value,
