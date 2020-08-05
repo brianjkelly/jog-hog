@@ -1,5 +1,6 @@
 const Plan = require('../models/plan');
 const Journal = require('../models/journal');
+const Runner = require('../models/runner');
 
 module.exports = {
     new: newJournal,
@@ -24,12 +25,15 @@ function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     };
-    const journal = new Journal(req.body);
-    journal.save(function(err) {
-        if (err) return res.render('journals/new');
-        res.redirect('/journals');
+    Runner.findById(req.user_id, function (err, user) {
+        req.body.runner = user;
+        const journal = new Journal(req.body);
+        journal.save(function(err) {
+            if (err) return res.render('journals/new');
+            res.redirect('/journals');
+        });
     });
-}
+};
 
 function index(req, res) {
     Journal.find({}, function(err, journals) {
