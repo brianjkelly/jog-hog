@@ -17,21 +17,20 @@
 
 <h2>View Day of Plan</h2>
     <label>Day: 
-        <select name="">
+        <select id="day-select">
+            <option selected>Select a Day</option>
             <% plan.days.forEach(function(d) { %>
                 <option value="<%= d._id %>"><%= d.dayNumber %></option>
             <% }) %>
         </select>
     </label>
-    <label>Day Type: 
-
-    </label>
-    <label>Distance (miles): 
-
-    </label>
-    <label>Notes: 
-
-    </label>
+    <% plan.days.forEach(function(d) { %>
+        <div class="day hidden" data-id="<%= d._id %>">
+        <label>Day Type: <%= d.dayType %></label>
+        <label>Distance (miles): <%= d.distance %></label>
+        <label>Notes: <%= d.notes %></label>
+        </div>
+    <% }) %>
 
 <h2>My Entries</h2>
 <% if (journal.entries.length) { %>
@@ -42,7 +41,7 @@
                 <th>Day Number</th>
                 <th>Type</th>
                 <th>Actual Distance (miles)</th>
-                <th>Actual Time (seconds)</th>
+                <th>Actual Time (hh:mm:ss)</th>
                 <th>Notes</th>
         </thead>
         <tbody>
@@ -52,8 +51,7 @@
                     <td><%= e.dayNumber %></td>
                     <td><%= e.dayType %></td>
                     <td><%= e.actDistance %></td>
-                    <!-- use displayTime instead of e.actTime -->
-                    <td><%= displayTime %></td>
+                    <td><%= moment.utc(e.actTime * 1000).format('HH:mm:ss') %></td>
                     <td><%= e.notes %></td>
                 </tr>
             <% }) %>

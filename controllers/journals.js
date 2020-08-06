@@ -1,7 +1,8 @@
 const Plan = require('../models/plan');
 const Journal = require('../models/journal');
 const Runner = require('../models/runner');
-const e = require('express');
+const moment = require('moment');
+
 
 module.exports = {
     new: newJournal,
@@ -52,16 +53,16 @@ function show(req, res) {
     .populate('plan').populate('runner')
     .exec(function(err, journal) {
         // create variable that contains string of display time
-        let displayTime = formatDisplayTime(journal.entries.actTime);
-        console.log(displayTime);
+        // let displayTime = formatDisplayTime(journal.entries.actTime);
+        journal.entries.forEach(function(e) {
+            e.actTime = formatDisplayTime(e.actTime)
+        });
         res.render('journals/show', {
             title: 'Journal Details',
             journal,
             plan: journal.plan,
             runner: journal.runner,
-            // pass string variable into render
-            displayTime
-
+            moment
         });
     });
 }
