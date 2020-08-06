@@ -16,10 +16,12 @@
                 <td><%= j.runner.name %></td>
                 <td><%= j.notes %></td>
                 <td><a href="/journals/<%= j._id %>">Details</a></td>
-                <td><a href="/journals/<%= j._id %>/edit">Edit</a></td>
+                <% if (j.runner && j.runner.equals(user && user._id)) { %>
+                <td><button type="submit"><a href="/journals/<%= j._id %>/edit">✏️</a></button></td>
                 <td><form id="delete-form" action="/journals/<%= j._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
+                    <button type="submit">🗑</button>
                 </form></td>
+                <% } %>
             </tr>
         <% }) %>
     </tbody>

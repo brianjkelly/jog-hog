@@ -32,9 +32,11 @@
                     <td><%= d.dayType %></td>
                     <td><%= d.distance %></td>
                     <td><%= d.notes %></td>
+                    <% if (plan.runner && plan.runner.equals(user && user._id)) { %>
                     <td><form id="delete-day-form" action="/days/<%= d._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
+                        <button type="submit">🗑</button>
                     </form></td>
+                    <% } %>
                 </tr>
             <% }) %>
         </tbody>
@@ -42,7 +44,9 @@
 <% } else { %>
     <h5>No Days Added to Plan</h5>
 <% } %>
+<% if (plan.runner && plan.runner.equals(user && user._id)) { %>
 <a href='/plans/<%= plan._id %>/days/new'>Add a New Day</a>
+<% } %>
 
 
 <%- include('../partials/footer') %>

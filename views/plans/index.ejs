@@ -18,10 +18,12 @@
                     <td><%= plan.distance %></td>
                     <td><%= plan.duration %></td>
                     <td><a href="/plans/<%= plan._id %>">Details</a></td>
-                    <td><a href="/plans/<%= plan._id %>/edit">Edit</a></td>
+                    <% if (plan.runner && plan.runner.equals(user && user._id)) { %>
+                    <td><button type="submit"><a href="/plans/<%= plan._id %>/edit">✏️</a></button></td>
                     <td><form id="delete-form" action="/plans/<%= plan._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
+                        <button type="submit">🗑</button>
                     </form></td>
+                    <% } %>
                 </tr>
             <% }) %>
         </tbody>

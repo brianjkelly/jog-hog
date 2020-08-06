@@ -16,6 +16,7 @@ function(accessToken, refreshToken, profile, cb) {
             const newRunner = new Runner({
                 name: profile.displayName,
                 email: profile.emails[0].value,
+                avatarURL: profile.photos[0].value,
                 googleId: profile.id
             });
             newRunner.save(function(err) {

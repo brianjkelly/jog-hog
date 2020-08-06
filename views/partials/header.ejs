@@ -22,6 +22,7 @@
     <a href="/journals/new" <%- title === 'Create Journal' ? 'class="active"' : '' %>>CREATE JOURNAL</a>
     <a href="/journals" <%- title === 'All Journals' ? 'class="active"' : '' %>>ALL JOURNALS</a>
     <% if (user) { %>
+      <img src="<%= user.avatarURL %>">
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google">LOGIN WITH GOOGLE</a>

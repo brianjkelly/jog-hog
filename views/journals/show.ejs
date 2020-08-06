@@ -54,9 +54,11 @@
                     <td><%= e.actDistance %></td>
                     <td><%= moment.utc(e.actTime * 1000).format('HH:mm:ss') %></td>
                     <td><%= e.notes %></td>
+                    <% if (journal.runner && journal.runner.equals(user && user._id)) { %>
                     <td><form id="delete-entry-form" action="/entries/<%= e._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
+                        <button type="submit">🗑</button>
                     </form></td>
+                    <% } %>
                 </tr>
             <% }) %>
         </tbody>
@@ -64,7 +66,9 @@
 <% } else { %>
     <h5>No Entries Added to Journal</h5>
 <% } %>
+<% if (journal.runner && journal.runner.equals(user && user._id)) { %>
 <a href='/journals/<%= journal._id %>/entries/new'>Add a New Entry</a>
+<% } %>
 
 
 <%- include('../partials/footer') %>
