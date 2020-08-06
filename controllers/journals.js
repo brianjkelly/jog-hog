@@ -1,6 +1,7 @@
 const Plan = require('../models/plan');
 const Journal = require('../models/journal');
 const Runner = require('../models/runner');
+const e = require('express');
 
 module.exports = {
     new: newJournal,
@@ -33,7 +34,7 @@ function create(req, res) {
             res.redirect('/journals');
         });
     });
-};
+}
 
 function index(req, res) {
     Journal.find({}, function(err, journals) {
@@ -48,10 +49,16 @@ function show(req, res) {
     Journal.findById(req.params.id)
     .populate('plan')
     .exec(function(err, journal) {
+        // create variable that contains string of display time
+        let displayTime = formatDisplayTime(journal.entries.actTime);
+        console.log(displayTime);
         res.render('journals/show', {
             title: 'Journal Details',
             journal,
-            plan: journal.plan
+            plan: journal.plan,
+            // pass string variable into render
+            displayTime
+
         });
     });
 }
@@ -85,3 +92,10 @@ function deleteJournal(req, res) {
         res.redirect('/journals');
     });
 }
+
+// Create a function that takes in total seconds and returns a time string
+function formatDisplayTime(seconds) {
+    let mins = Math.floor(seconds / 60).toString().padStart(3, '0');
+    let secs = (seconds % 60).toString().padStart(2, '0');
+    return `${mins}:${secs}`;
+};
