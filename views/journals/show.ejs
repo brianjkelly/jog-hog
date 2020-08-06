@@ -15,6 +15,24 @@
     <div><%= journal.notes %></div>
 </section>
 
+<h2>View Day of Plan</h2>
+    <label>Day: 
+        <select name="">
+            <% plan.days.forEach(function(d) { %>
+                <option value="<%= d._id %>"><%= d.dayNumber %></option>
+            <% }) %>
+        </select>
+    </label>
+    <label>Day Type: 
+
+    </label>
+    <label>Distance (miles): 
+
+    </label>
+    <label>Notes: 
+
+    </label>
+
 <h2>My Entries</h2>
 <% if (journal.entries.length) { %>
     <table>
