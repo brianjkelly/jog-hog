@@ -15,10 +15,10 @@
     <div><%= journal.notes %></div>
 </section>
 
-<h2>View Day of Plan</h2>
+<h2>View Day From Plan</h2>
     <label>Day: 
         <select id="day-select">
-            <option selected>Select a Day</option>
+            <option selected>Select</option>
             <% plan.days.forEach(function(d) { %>
                 <option value="<%= d._id %>"><%= d.dayNumber %></option>
             <% }) %>

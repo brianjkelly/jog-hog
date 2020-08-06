@@ -3,12 +3,17 @@ const router = express.Router();
 const plansCtrl = require('../controllers/plans');
 
 
-router.get('/new', plansCtrl.new);
-router.post('/', plansCtrl.create);
+router.get('/new', isLoggedIn, plansCtrl.new);
+router.post('/', isLoggedIn, plansCtrl.create);
 router.get('/', plansCtrl.index);
 router.get('/:id', plansCtrl.show);
-router.get('/:id/edit', plansCtrl.edit);
-router.put('/:id', plansCtrl.update);
-router.delete('/:id', plansCtrl.delete);
+router.get('/:id/edit', isLoggedIn, plansCtrl.edit);
+router.put('/:id', isLoggedIn, plansCtrl.update);
+router.delete('/:id', isLoggedIn, plansCtrl.delete);
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/auth/google');
+}
 
 module.exports = router;
