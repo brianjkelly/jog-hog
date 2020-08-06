@@ -25,7 +25,7 @@ function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     };
-    Runner.findById(req.user_id, function (err, user) {
+    Runner.findById(req.user._id, function (err, user) {
         req.body.runner = user;
         const journal = new Journal(req.body);
         journal.save(function(err) {

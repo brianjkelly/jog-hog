@@ -23,7 +23,8 @@ const entrySchema = new Schema({
         max: 30
     },
     actTime: {
-        type: Date
+        type: Number,
+        min: 1
     },
     notes: {
         type: String,
