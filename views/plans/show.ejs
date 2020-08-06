@@ -32,7 +32,7 @@
                     <td><%= d.dayType %></td>
                     <td><%= d.distance %></td>
                     <td><%= d.notes %></td>
-                    <td><form id="delete-form" action="/days/<%= d._id %>?_method=DELETE" method="POST">
+                    <td><form id="delete-day-form" action="/days/<%= d._id %>?_method=DELETE" method="POST">
                         <button type="submit">Delete</button>
                     </form></td>
                 </tr>

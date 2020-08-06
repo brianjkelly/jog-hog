@@ -2,7 +2,8 @@ const Journal = require('../models/journal');
 
 module.exports = {
     new: newEntry,
-    create
+    create,
+    delete: deleteEntry
 };
 
 function newEntry(req, res) {
@@ -26,3 +27,12 @@ function create(req, res) {
         });
     });
 };
+
+function deleteEntry(req, res) {
+    Journal.findOne({ "entries._id": req.params.id }, function(err, journal) {
+        journal.entries.pull(req.params.id);
+        journal.save(function(err) {
+            res.redirect(`/journals/${journal._id}`)
+        });
+    });
+}

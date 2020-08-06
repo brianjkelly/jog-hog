@@ -43,6 +43,7 @@
                 <th>Actual Distance (miles)</th>
                 <th>Actual Time (hh:mm:ss)</th>
                 <th>Notes</th>
+                <th></th>
         </thead>
         <tbody>
             <% journal.entries.forEach(function(e) { %>
@@ -53,6 +54,9 @@
                     <td><%= e.actDistance %></td>
                     <td><%= moment.utc(e.actTime * 1000).format('HH:mm:ss') %></td>
                     <td><%= e.notes %></td>
+                    <td><form id="delete-entry-form" action="/entries/<%= e._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form></td>
                 </tr>
             <% }) %>
         </tbody>

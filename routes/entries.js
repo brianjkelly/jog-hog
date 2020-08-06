@@ -4,6 +4,7 @@ const entriesCtrl = require('../controllers/entries');
 
 router.get('/journals/:id/entries/new', isLoggedIn, entriesCtrl.new);
 router.post('/journals/:id/entries', isLoggedIn, entriesCtrl.create);
+router.delete('/entries/:id', isLoggedIn, entriesCtrl.delete);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
