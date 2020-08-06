@@ -74,7 +74,8 @@ function edit(req, res) {
     Journal.findById(req.params.id, function(err, journal) {
             res.render('journals/edit', {
                 title: 'Edit Journal',
-                journal
+                journal,
+                user: req.user
         });
     });
 }

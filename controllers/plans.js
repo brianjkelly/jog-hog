@@ -62,7 +62,8 @@ function edit(req, res) {
     Plan.findById(req.params.id, function(err, plan) {
         res.render('plans/edit', {
             title: 'Edit Plan',
-            plan
+            plan,
+            user: req.user
         });
     });
 };
