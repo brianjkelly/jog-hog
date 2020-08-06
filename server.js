@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const port = 3000;
 
 const indexRouter = require('./routes/index');
 const plansRouter = require('./routes/plans');
@@ -15,6 +14,7 @@ const dashboardRouter = require('./routes/dashboard');
 
 // Load the env vars
 require('dotenv').config()
+const port = process.env.PORT || 3000;
 
 // Set up express app
 const app = express();
