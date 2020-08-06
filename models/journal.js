@@ -19,12 +19,14 @@ const entrySchema = new Schema({
     },
     actDistance: {
         type: Number,
-        min: 1,
-        max: 30
+        min: 0,
+        max: 30,
+        default: 0
     },
     actTime: {
         type: Number,
-        min: 1
+        min: 0,
+        default: 0
     },
     notes: {
         type: String,
