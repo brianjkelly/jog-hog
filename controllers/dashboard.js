@@ -11,7 +11,7 @@ function index(req, res) {
         Journal.find({runner: runner._id}, function(err, journals) {
             Plan.find({runner: runner._id}, function(err, plans) {
                 res.render('dashboard/index', {
-                title: 'My Dashboard',
+                title: `${runner.name}'s Dashboard`,
                 runner,
                 journals,
                 plans,

@@ -1,8 +1,23 @@
 <%- include('../partials/header') %>
 
-<% journals.forEach(function(j){ %>
-    <h2><%= j.title %></h2>
+<h2>My Plans</h2>
+<% plans.forEach(function(p){ %>
+    <tbody>
+        <tr>
+            <td><%= p.title %></td>
+            <td><a href="/plans/<%= p._id %>">Details</a></td>
+        </tr>
+    </tbody>
+<% }) %>
 
+<h2>My Journals</h2>
+<% journals.forEach(function(j){ %>
+    <tbody>
+        <tr>
+            <td><%= j.title %></td>
+            <td><a href="/journals/<%= j._id %>">Details</a></td>
+        </tr>
+    </tbody>
 <% }) %>
 
 <%- include('../partials/footer') %>
