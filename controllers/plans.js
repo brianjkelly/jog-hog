@@ -31,7 +31,9 @@ function create(req, res) {
 };
 
 function index(req, res) {
-    Plan.find({}, function(err, plans) {
+    Plan.find({})
+    .populate('runner')
+    .exec(function(err, plans) {
         res.render('plans/index', {
             title: 'All Plans',
             plans
