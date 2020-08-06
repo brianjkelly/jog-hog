@@ -11,6 +11,7 @@ const plansRouter = require('./routes/plans');
 const daysRouter = require('./routes/days');
 const journalsRouter = require('./routes/journals');
 const entriesRouter = require('./routes/entries');
+const dashboardRouter = require('./routes/dashboard');
 
 // Load the env vars
 require('dotenv').config()
@@ -44,6 +45,7 @@ app.use('/plans', plansRouter);
 app.use('/', daysRouter);
 app.use('/journals', journalsRouter);
 app.use('/', entriesRouter);
+app.use('/dashboard', dashboardRouter);
 
 // Tell App to listen
 app.listen(port, function() {

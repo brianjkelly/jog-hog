@@ -1,12 +1,9 @@
-const runner = require("../models/runner");
+const Runner = require("../models/runner");
 
 module.exports = {
     index
 };
 
-// function index(req, res) {
-//     res.render('index');
-// }
 function index(req, res) {
     Runner.find({}, function(err, runners) {
     res.render('index', {
