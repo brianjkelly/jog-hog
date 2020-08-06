@@ -37,7 +37,9 @@ function create(req, res) {
 }
 
 function index(req, res) {
-    Journal.find({}, function(err, journals) {
+    Journal.find({})
+    .populate('runner')
+    .exec(function(err, journals) {
         res.render('journals/index', {
             title: 'All Journals',
             journals
