@@ -12,7 +12,10 @@ module.exports = {
 };
 
 function newPlan(req, res) {
-    res.render('plans/new', { title: 'Create Plan' });
+    res.render('plans/new', { 
+        title: 'Create Plan',
+        user: req.user
+    });
 };
 
 function create(req, res) {
@@ -36,7 +39,8 @@ function index(req, res) {
     .exec(function(err, plans) {
         res.render('plans/index', {
             title: 'All Plans',
-            plans
+            plans,
+            user: req.user
         });
     });
 };
@@ -48,7 +52,8 @@ function show(req, res) {
         res.render('plans/show', {
             title: 'Plan Details',
             plan,
-            runner: plan.runner
+            runner: plan.runner,
+            user: req.user
         });
     });
 };

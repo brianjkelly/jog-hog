@@ -15,11 +15,17 @@
 <body>
   <nav>
     <img src="/images/running.svg">
+    <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
     <a href="/dashboard" <%- title === 'My Dashboard' ? 'class="active"' : '' %>>MY DASHBOARD</a>
     <a href="/plans/new" <%- title === 'Create Plan' ? 'class="active"' : '' %>>CREATE PLAN</a>
     <a href="/plans" <%- title === 'All Plans' ? 'class="active"' : '' %>>ALL PLANS</a>
     <a href="/journals/new" <%- title === 'Create Journal' ? 'class="active"' : '' %>>CREATE JOURNAL</a>
-    <a href="/journals" <%- title === 'All Journal' ? 'class="active"' : '' %>>ALL JOURNALS</a>
+    <a href="/journals" <%- title === 'All Journals' ? 'class="active"' : '' %>>ALL JOURNALS</a>
+    <% if (user) { %>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google">LOGIN WITH GOOGLE</a>
+    <% } %>
   </nav>
   <main>
     <h1><%= title %></h1>

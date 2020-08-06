@@ -18,7 +18,8 @@ function newJournal(req, res) {
     Plan.find({}, function(err, plans) {
         res.render('journals/new', { 
             title: 'Create Journal', 
-            plans 
+            plans,
+            user: req.user 
         }); 
     });
 }
@@ -43,7 +44,8 @@ function index(req, res) {
     .exec(function(err, journals) {
         res.render('journals/index', {
             title: 'All Journals',
-            journals
+            journals,
+            user: req.user
         });
     });
 }
@@ -62,6 +64,7 @@ function show(req, res) {
             journal,
             plan: journal.plan,
             runner: journal.runner,
+            user: req.user,
             moment
         });
     });
