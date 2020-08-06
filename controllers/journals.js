@@ -49,7 +49,7 @@ function index(req, res) {
 
 function show(req, res) {
     Journal.findById(req.params.id)
-    .populate('plan')
+    .populate('plan').populate('runner')
     .exec(function(err, journal) {
         // create variable that contains string of display time
         let displayTime = formatDisplayTime(journal.entries.actTime);
@@ -58,6 +58,7 @@ function show(req, res) {
             title: 'Journal Details',
             journal,
             plan: journal.plan,
+            runner: journal.runner,
             // pass string variable into render
             displayTime
 
