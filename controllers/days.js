@@ -9,7 +9,8 @@ module.exports = {
 function newDay(req, res) {
     res.render('days/new', {
         title: 'Create a Day for Plan',
-        planId: req.params.id
+        planId: req.params.id,
+        user: req.user
     });
 };
 

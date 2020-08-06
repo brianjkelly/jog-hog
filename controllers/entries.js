@@ -9,7 +9,8 @@ module.exports = {
 function newEntry(req, res) {
     res.render('entries/new', {
         title: 'Create a New Entry for Journal',
-        journalId: req.params.id
+        journalId: req.params.id,
+        user: req.user
     });
 };
 
