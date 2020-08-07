@@ -1,34 +1,32 @@
 <%- include('../partials/header') %>
 
 <section id="show-journal-page">
-    <div>Title: </div>
-    <div><%= journal.title %></div>
-    <div>Created By: </div>
-    <div><%= runner.name %></div>
-    <div>Plan: </div>
-    <div><%= plan.title %></div>
-    <div>Distance: </div>
-    <div><%= plan.distance %></div>
-    <div>Duration (weeks): </div>
-    <div><%= plan.duration %></div>
-    <div>Notes: </div>
-    <div><%= journal.notes %></div>
+    <p class="h1 font-weight-bold text-center"><%= journal.title %></p>
+    <p class="h2 font-weight-bold text-center">Created By: <%= runner.name %></p>
+    <p class="h3 font-weight-bold text-center">This journal utilizes <%= plan.title %></p>
+    <p class="h4 text-center"><%= journal.notes %></p>
 </section>
 
 <h2 class="detail-header">View Day From Plan</h2>
-    <label>Day: 
+    <label><p class="h3 font-weight-bold">Day: 
         <select id="day-select">
             <option selected>Select</option>
             <% plan.days.forEach(function(d) { %>
                 <option value="<%= d._id %>"><%= d.dayNumber %></option>
             <% }) %>
-        </select>
+        </select></p>
     </label>
     <% plan.days.forEach(function(d) { %>
         <div class="day hidden" data-id="<%= d._id %>">
-        <label>Day Type: <%= d.dayType %></label>
-        <label>Distance (miles): <%= d.distance %></label>
-        <label>Notes: <%= d.notes %></label>
+            <p class="h3 font-weight-bold text-center">
+                <label><%= d.dayType %> Day</label>
+            </p>
+            <p class="h3 font-weight-bold text-center">
+                <label>Run for <%= d.distance %> miles</label>
+            </p>
+            <p class="h3 font-weight-bold text-center">
+                <label>Additional Notes: <%= d.notes %></label>
+            </p>
         </div>
     <% }) %>
 
@@ -67,7 +65,7 @@
     <h5>No Entries Added to Journal</h5>
 <% } %>
 <% if (journal.runner && journal.runner.equals(user && user._id)) { %>
-<a href='/journals/<%= journal._id %>/entries/new'>Add a New Entry</a>
+<a href='/journals/<%= journal._id %>/entries/new'><input type="submit" value="Add a New Entry" class="btn btn-info"></a>
 <% } %>
 
 
