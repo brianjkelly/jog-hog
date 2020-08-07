@@ -27,7 +27,10 @@ function create(req, res) {
         req.body.runner = user;
         const plan = new Plan(req.body);
         plan.save(function(err) {
-            if (err) return res.render('plans/new');
+            if (err) return res.render('plans/new', {
+                title: 'Create a Plan',
+                user: req.user
+            });
             res.redirect('/plans');
         });
     });
