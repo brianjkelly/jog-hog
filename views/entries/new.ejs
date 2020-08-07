@@ -1,33 +1,51 @@
 <%- include('../partials/header') %>
 
 <form id="add-entry-form" action="/journals/<%= journalId %>/entries/" method="POST">
-    <label>Date: 
-        <input type="date" name="date">
+    <div class="d-flex align-items-left flex-column">
+        <div class="d-flex">
+        <label><p class="h3 font-weight-bold">Date: 
+        <input type="date" name="date"></p>
     </label>
-    <label>Day Number: 
-        <input type="number" name="dayNumber">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Day Number: 
+        <input type="number" name="dayNumber"></p>
     </label>
-    <label>Type: 
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Type: 
         <select name="dayType">
             <option value="Easy">Easy</option>
             <option value="Hard">Hard</option>
             <option value="Tempo">Tempo</option>
             <option value="Rest">Rest</option>
-        </select>
+        </select></p>
     </label>
-    <label>Actual Distance (miles): 
-        <input type="number" name="actDistance">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Actual Distance (miles): 
+        <input type="number" name="actDistance"></p>
     </label>
-    <label>Actual Time (minutes): 
-        <input type="number" name="minutes">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Actual Time (minutes): 
+        <input type="number" name="minutes"></p>
     </label>
-    <label>Actual Time (seconds): 
-        <input type="number" name="seconds">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Actual Time (seconds): 
+        <input type="number" name="seconds"></p>
     </label>
-    <label>Notes: 
-        <textarea name="notes"></textarea>
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Notes: 
+        <textarea name="notes"></textarea></p>
     </label>
-    <input type="submit" value="Add Entry">
+    </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <input type="submit" value="Add Entry" class="btn btn-info">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>
