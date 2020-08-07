@@ -1,3 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+        "nav"
+        "main"
+}
+
+body > nav {
+    grid-area: nav;
+    background-color: #e57200;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 45px 20px;
+}
+
+nav > img {
+    object-fit: contain;
+    margin-right: auto;
+}
+
+body > main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BCBCBC;
+}
+
+
 .hidden {
-    display: none
+    display: none;
 }
