@@ -13,7 +13,7 @@ module.exports = {
 
 function newPlan(req, res) {
     res.render('plans/new', { 
-        title: 'Create Plan',
+        title: 'Create a Plan',
         user: req.user
     });
 };

@@ -17,7 +17,7 @@ module.exports = {
 function newJournal(req, res) {
     Plan.find({}, function(err, plans) {
         res.render('journals/new', { 
-            title: 'Create Journal', 
+            title: 'Create a Journal', 
             plans,
             user: req.user 
         }); 
