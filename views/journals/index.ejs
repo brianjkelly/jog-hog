@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
-<table id="journal-list">
-    <thead>
-        <th>Title</th>
-        <th>Created By</th>
-        <th>Notes</th>
-        <th></th>
-        <th></th>
-        <th></th>
+<table class="table table-bordered table-hover" id="journal-list">
+    <thead class="thead-dark">
+        <th scope="col-2">Title</th>
+        <th scope="col">Created By</th>
+        <th scope="col">Notes</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </thead>
     <tbody>
         <% journals.forEach(function(j) { %>

@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 
-    <table id="plan-list">
-        <thead>
-            <th>Title</th>
-            <th>Created By</th>
-            <th>Distance</th>
-            <th>Duration (weeks)</th>
-            <th></th>
-            <th></th>
-            <th></th>
+    <table class="table table-bordered table-hover" id="plan-list">
+        <thead class="thead-dark">
+            <th scope="col-2">Title</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Duration (weeks)</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </thead>
         <tbody>
             <% plans.forEach(function(plan) { %>
