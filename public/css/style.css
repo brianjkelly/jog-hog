@@ -69,6 +69,13 @@ nav > a.active {
     border-radius: 5px; */
 }
 
+#avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+
 .hidden {
     display: none;
 }
