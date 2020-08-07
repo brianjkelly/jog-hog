@@ -4,7 +4,7 @@ const Runner = require('../models/runner');
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: process.env.LOCAL_CALLBACK
+    callbackURL: process.env.GOOGLE_CALLBACK
 },
 function(accessToken, refreshToken, profile, cb) {
     Runner.findOne({ 'googleId': profile.id }, function(err, runner) {
