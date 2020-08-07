@@ -24,7 +24,8 @@ body > nav {
 .foot {
     width: 100vw;
     grid-area: nav;
-    display: grid;
+    display: flex;
+    justify-content: flex-end;
     background-color: #1b5790;
     padding: 30px 20px;
 }
