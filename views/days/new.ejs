@@ -1,24 +1,36 @@
 <%- include('../partials/header') %>
 
 <form id="add-day-form" action="/plans/<%= planId %>/days/" method="POST">
-    <label>Day Number:
-        <input type="number" name="dayNumber">
-    </label>
-    <label>Type:
+    <div class="d-flex align-items-left flex-column">
+    <div class="d-flex">
+        <label><p class="h3 font-weight-bold">Day Number:
+        <input type="number" name="dayNumber"></p>
+        </label>
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Type:
         <select name="dayType">
             <option value="Easy">Easy</option>
             <option value="Hard">Hard</option>
             <option value="Tempo">Tempo</option>
             <option value="Rest">Rest</option>
-        </select>
+        </select></p>
     </label>
-    <label>Distance (miles):
-        <input type="number" name="distance">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Distance (miles):
+        <input type="number" name="distance"></p>
     </label>
-    <label>Notes:
-        <textarea name="notes"></textarea>
+    </div>
+    <div class="d-flex"> 
+    <label><p class="h3 font-weight-bold">Notes:
+        <textarea name="notes"></textarea></p>
     </label>
-    <input type="submit" value="Add Day">
+    </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <input type="submit" value="Add Day" class="btn btn-info">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>
