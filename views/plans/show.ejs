@@ -13,16 +13,16 @@
     <div><%= plan.notes %></div>
 </section>
 
-<h2>Training Days</h2>
+<h2 class="detail-header">Training Days</h2>
 <% if (plan.days.length) { %>
-    <table>
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
             <tr>
-                <th>Day Number</th>
-                <th>Type</th>
-                <th>Distance (miles)</th>
-                <th>Notes</th>
-                <th></th>
+                <th scope="col">Day Number</th>
+                <th scope="col">Type</th>
+                <th scope="col">Distance (miles)</th>
+                <th scope="col-6">Notes</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

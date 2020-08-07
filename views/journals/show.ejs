@@ -15,7 +15,7 @@
     <div><%= journal.notes %></div>
 </section>
 
-<h2>View Day From Plan</h2>
+<h2 class="detail-header">View Day From Plan</h2>
     <label>Day: 
         <select id="day-select">
             <option selected>Select</option>
@@ -32,10 +32,10 @@
         </div>
     <% }) %>
 
-<h2>My Entries</h2>
+<h2 class="detail-header">My Entries</h2>
 <% if (journal.entries.length) { %>
-    <table>
-        <thead>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th>Date</th>
                 <th>Day Number</th>
