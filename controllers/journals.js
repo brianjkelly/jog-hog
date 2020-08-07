@@ -57,7 +57,8 @@ function show(req, res) {
         // create variable that contains string of display time
         // let displayTime = formatDisplayTime(journal.entries.actTime);
         journal.entries.forEach(function(e) {
-            e.actTime = formatDisplayTime(e.actTime)
+            e.actTime = formatDisplayTime(e.actTime);
+            // e.date = formatDate(e.date);
         });
         res.render('journals/show', {
             title: 'Journal Details',
@@ -106,4 +107,12 @@ function formatDisplayTime(seconds) {
     let mins = Math.floor(seconds / 60).toString().padStart(3, '0');
     let secs = (seconds % 60).toString().padStart(2, '0');
     return `${mins}:${secs}`;
-};
+}
+
+// Create a function that takes in a date and returns a string in format MM/DD/YYYY
+// function formatDate(d) {
+//     let month = (d.getMonth() + 1).toString().padStart(2, '0');
+//     let day = d.getDate().toString().padStart(2, '0');
+//     let year = d.getFullYear().toString();
+//     return month + "/" + day + "/" + year;
+// }

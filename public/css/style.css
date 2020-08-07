@@ -54,6 +54,7 @@ nav > a {
 
 nav > a:hover {
     background-color: #e57200;
+    color: #ffffff;
 }
 
 nav > a.active {
@@ -76,13 +77,24 @@ nav > a.active {
     border-radius: 5px;
 }
 
-/* Subheaders for details pages */
-.detail-header {
+/* Subheaders for details pages and dashboard */
+.detail-header, #name-header {
     margin: 10px;
-    padding: 10px;
-    font-family: 'Fredoka One', cursive;
-    background-color: #b2d281;
+    padding: 10px; 
     border-radius: 5px;
+}
+
+.detail-header {
+    background-color: #b2d281;
+    font-family: 'Fredoka One', cursive;
+}
+
+#dash-plan-header {
+    margin-top: 25px;
+}
+
+.plan-title-head {
+    background-color: #1b5790;
 }
 
 /* Below used for 'View Day From Plan' functionality */

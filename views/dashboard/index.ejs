@@ -1,22 +1,47 @@
 <%- include('../partials/header') %>
-<h2><%= runner.name %></h3>
-<img id="avatar" src="<%= user.avatarURL %>">
+<div class="d-flex justify-content-center align-items-center">
+    <img id="avatar" src="<%= user.avatarURL %>">
+    <p class="h1 font-weight-bold text-center" id="name-header"><%= runner.name %></p>
+</div>
 
-<h2>My Plans</h2>
+<h2 class="detail-header" id="dash-plan-header">My Plans</h2>
+<table class="table table-bordered table-hover" id="dash-plan-list">
+    <thead class="thead-dark">
+        <th scope="col-2">Title</th>
+        <th scope="col">Distance</th>
+        <th scope="col">Duration (weeks)</th>
+        <th scope="col-6">Notes</th>
+        <th scope="col"></th>
+    </thead>
 <% plans.forEach(function(p){ %>
     <tbody>
         <tr>
             <td><%= p.title %></td>
+            <td><%= p.distance %></td>
+            <td><%= p.duration %></td>
+            <td><%= p.notes %></5></td>
             <td><a href="/plans/<%= p._id %>">Details</a></td>
         </tr>
     </tbody>
 <% }) %>
+</table>
 
-<h2>My Journals</h2>
+<h2 class="detail-header">My Journals</h2>
+<table class="table table-bordered table-hover" id="dash-journal-list">
+    <thead class="thead-dark">
+        <th scope="col-2">Title</th>
+        <th scope="col">Distance</th>
+        <th scope="col">Duration (weeks)</th>
+        <th scope="col-6">Notes</th>
+        <th scope="col"></th>
+    </thead>
 <% journals.forEach(function(j){ %>
     <tbody>
         <tr>
             <td><%= j.title %></td>
+            <td><%= j.plan.distance %></td>
+            <td><%= j.plan.duration %></td>
+            <td><%= j.notes %></td>
             <td><a href="/journals/<%= j._id %>">Details</a></td>
         </tr>
     </tbody>

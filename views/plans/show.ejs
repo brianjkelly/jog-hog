@@ -1,16 +1,10 @@
 <%- include('../partials/header') %>
 
 <section id="show-plan-page">
-    <div>Title: </div>
-    <div><%= plan.title %></div>
-    <div>Created By: </div>
-    <div><%= runner.name %></div>
-    <div>Distance: </div>
-    <div><%= plan.distance %></div>
-    <div>Duration (weeks): </div>
-    <div><%= plan.duration %></div>
-    <div>Notes: </div>
-    <div><%= plan.notes %></div>
+        <p class="h2 font-weight-bold text-center"><%= plan.title %></p>
+        <p class="h3 font-weight-bold text-center">Created By: <%= runner.name %></p>
+        <p class="h4 text-center"><%= plan.duration %>-week training plan in preparation for a <%= plan.distance %></p>
+        <p class="h4 text-center"><%= plan.notes %></p>
 </section>
 
 <h2 class="detail-header">Training Days</h2>
