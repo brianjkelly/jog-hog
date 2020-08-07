@@ -21,6 +21,14 @@ body > nav {
     padding: 45px 20px;
 }
 
+.foot {
+    width: 100vw;
+    grid-area: nav;
+    display: grid;
+    background-color: #1b5790;
+    padding: 30px 20px;
+}
+
 nav > img {
     object-fit: contain;
     margin-right: auto;
