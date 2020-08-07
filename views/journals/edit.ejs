@@ -1,13 +1,21 @@
 <%- include('../partials/header') %>
 
 <form id="edit-journal-form" action="/journals/<%= journal._id %>?_method=PUT" method="POST" autocomplete="off">
-    <label>Title:
-        <input type="text" name="title" required value="<%= journal.title %>">
+    <div class="d-flex align-items-left flex-column">
+        <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Title:
+        <input type="text" name="title" required value="<%= journal.title %>"></p>
     </label>
-    <label>Notes:
-        <textarea name="notes"><%= journal.notes %></textarea>
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Notes:
+        <textarea name="notes"><%= journal.notes %></textarea></p>
     </label>
-    <input type="submit" value="Edit Journal">
+    </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <input type="submit" value="Edit Journal" class="btn btn-info">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>

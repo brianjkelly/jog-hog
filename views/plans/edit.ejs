@@ -1,23 +1,35 @@
 <%- include('../partials/header') %>
 
 <form id="edit-plan-form" action="/plans/<%= plan._id %>?_method=PUT" method="POST" autocomplete="off">
-    <label>Title: 
-        <input type="text" name="title" required value="<%= plan.title %>">
+    <div class="d-flex align-items-left flex-column">
+        <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Title: 
+        <input type="text" name="title" required value="<%= plan.title %>"></p>
     </label>
-    <label>Distance:
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Distance:
         <select name="distance">
             <% ["5k", "10k", "Half-Marathon", "Marathon"].forEach(op => { %>
                 <option <%- op === plan.distance ? 'selected' : ''%> value="<%= op %>"><%= op %></option>
             <% }) %>
-        </select>
+        </select></p>
     </label>
-    <label>Duration (weeks):
-        <input type="text" name="duration" value="<%= plan.duration %>">
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Duration (weeks):
+        <input type="text" name="duration" value="<%= plan.duration %>"></p>
     </label>
-    <label>Notes:
-        <textarea name="notes"><%= plan.notes %></textarea>
+    </div>
+    <div class="d-flex">
+    <label><p class="h3 font-weight-bold">Notes:
+        <textarea name="notes"><%= plan.notes %></textarea></p>
     </label>
-    <input type="submit" value="Edit Plan">
+    </div>
+    </div>
+    <div class="d-flex justify-content-center">
+    <input type="submit" value="Edit Plan" class="btn btn-info">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>
