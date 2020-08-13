@@ -12,6 +12,10 @@ body {
         "main"
 }
 
+body > footer {
+    background-color: #1b5790;
+}
+
 body > nav {
     grid-area: nav;
     background-color: #1b5790;
